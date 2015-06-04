@@ -243,6 +243,9 @@ void Program_4()
 		com[i]->printComputer();
 		cout << endl;
 	}
+
+	for (int i = 0; i < 4; ++i)
+		delete com[i];
 }
 int main()
 {
