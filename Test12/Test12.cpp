@@ -197,8 +197,8 @@ class AAA
 public:
 	int n;
 };
-class BBB:public AAA{};
-class CCC : public AAA{};
+class BBB:virtual public AAA{}; //为避免二义性，用虚基类
+class CCC : virtual public AAA{};
 class DDD :public BBB, public CCC
 {
 	int getN()
@@ -210,8 +210,8 @@ class DDD :public BBB, public CCC
 void Program_5()
 {
 	DDD d;
-//	d.n = 10;
-//	cout << d.n << endl;
+	d.n = 10;
+	cout << d.n << endl;
 }
 int main()
 {
@@ -226,4 +226,7 @@ int main()
 
 	cout << endl << "第四题" << endl;
 	Program_4();
+
+	cout << endl << "第五题" << endl;
+	Program_5();
 }

@@ -1,71 +1,46 @@
-#include <iostream>
-#include <cstring>
+#include<iostream>
 using namespace std;
-
-class Engineer
-
+class Manager
 {
-
-public:
-
-	Engineer();
-
-	Engineer(int pid, char *pname, char *pposition);
-
-	void printEngineer();
-
 private:
-
 	int id;
-
 	char *name;
-
-	char *position;
-
+	int age;
+public:
+	Manager(int pid, char *pname, int page)
+	{
+		id = pid;
+		name = new char[strlen(pname) + 1];
+		if (name != 0)
+			strcpy(name, pname);
+		age = page;
+	}
+	void printEmployee(Employee e);
 };
-
-Engineer::Engineer(int pid, char *pname, char *pposition)
-
+class Employee
 {
-
-	id = pid;
-
-	strcpy(name, pname);
-
-	strcpy(position, pposition);
-
+	friend class Manager;
+private:
+	int id;
+	char *name;
+	int age;
+public:
+	Employee(int pid, char *pname, int page)
+	{
+		id = pid;
+		name = new char[strlen(pname) + 1];
+		if (name != 0)
+			strcpy(name, pname);
+		age = page;
+	}
+};
+void Manager::printEmployee(Employee e)
+{
+	cout << "id:" << e.id << "name:" << e.name << "age:" << e.age << endl;
 }
-
-void Engineer::printEngineer()
-
+int main()
 {
-
-	cout << "ID:" << id << "," << "姓名:" << name << "," << "职位:" << position << endl;
-
-}
-
-void main()
-
-{
-
-	Engineer member0(45, "张三", "技术总监");
-
-	Engineer member1(54, "李四", "技术顾问");
-
-	Engineer* pmember1 = new Engineer(56, "王五", "总经理");
-
-	Engineer* pmember2 = new Engineer(65, "赵六", "董事长");
-
-	member0.printEngineer();
-
-	member1.printEngineer();
-
-	pmember1->printEngineer();
-
-	pmember2->printEngineer();
-
-	delete pmember1;
-
-	delete pmember2;
-
+	Manager  man1(01, "wang", 19);
+	man1.printEmployee();
+	return 0;
 }
