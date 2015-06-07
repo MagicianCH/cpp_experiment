@@ -190,7 +190,7 @@ Max<T>::Max(T _a, T _b, T _c, T _d)
 	d = _d;
 }
 template <class T>
-T Max<T>::getMax()
+T Max<T>::getMax() //
 {
 	T m1, m2;
 	m1 = a > b ? a : b;

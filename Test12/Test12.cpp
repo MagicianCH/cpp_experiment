@@ -210,8 +210,8 @@ class DDD :public BBB, public CCC
 void Program_5()
 {
 	DDD d;
-	d.n = 10;
-	cout << d.n << endl;
+//	d.n = 10;
+//	cout << d.n << endl;
 }
 int main()
 {
