@@ -1,21 +1,71 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 
-int main()
+class Engineer
+
 {
-	char b[10][100];
-	for (int i = 0; i<10; i++)
-	{gets(b[i]);
-	}
-	char *t;
-	int j;
-	for (int i = 1; i<10; i++){
-			{ for (int j = 1; j<10; j++)
-				if (strcmp(b[i], b[j])<0)
-					strcpy(t, b[i]);
-			strcpy(b[i], b[j]);
-			strcpy(b[j], t); }
-	}
-	cout << b[10][100] << endl;
-	return 0;
+
+public:
+
+	Engineer();
+
+	Engineer(int pid, char *pname, char *pposition);
+
+	void printEngineer();
+
+private:
+
+	int id;
+
+	char *name;
+
+	char *position;
+
+};
+
+Engineer::Engineer(int pid, char *pname, char *pposition)
+
+{
+
+	id = pid;
+
+	strcpy(name, pname);
+
+	strcpy(position, pposition);
+
+}
+
+void Engineer::printEngineer()
+
+{
+
+	cout << "ID:" << id << "," << "姓名:" << name << "," << "职位:" << position << endl;
+
+}
+
+void main()
+
+{
+
+	Engineer member0(45, "张三", "技术总监");
+
+	Engineer member1(54, "李四", "技术顾问");
+
+	Engineer* pmember1 = new Engineer(56, "王五", "总经理");
+
+	Engineer* pmember2 = new Engineer(65, "赵六", "董事长");
+
+	member0.printEngineer();
+
+	member1.printEngineer();
+
+	pmember1->printEngineer();
+
+	pmember2->printEngineer();
+
+	delete pmember1;
+
+	delete pmember2;
+
 }
