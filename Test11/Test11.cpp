@@ -20,7 +20,7 @@ public:
 		numOfSale = pnumOfSale;
 		priceOfSale = ppriceOfSale;
 		n += numOfSale;
-		if (priceOfSale >= 10)
+		if (numOfSale >= 10)
 			sum += priceOfSale * numOfSale * discount;
 		else
 			sum += priceOfSale * numOfSale;
